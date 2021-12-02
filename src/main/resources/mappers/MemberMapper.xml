@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cc.grum.base.backendspringboot.core.db.mapper.MemberMapper">
+
+	<select id="foundRows" resultType="long">
+		SELECT	FOUND_ROWS() AS total_count
+	</select>
+
+	<select id="total" resultType="long" >
+		SELECT	count(mem_pid)
+		  FROM	member_master
+	</select>
+
+	<select id="findById" parameterType="Long" resultType="MemberMaster">
+		SELECT	*
+		  FROM	members
+		 WHERE	seq = #{pid}
+	</select>
+
+	<select id="existsByLoginId" parameterType="String" resultType="Boolean">
+		SELECT	IF(COUNT(*) >= 1, 1, 0)
+		  FROM	member_master
+		 WHERE	login_id = #{loginId}
+	</select>
+
+	<select id="findByLoginId" parameterType="String" resultType="MemberMaster">
+		SELECT	*
+		  FROM	members
+		 WHERE	username = #{loginId}
+	</select>
+
+	<select id="findByLoginIdNPassword" parameterType="String" resultType="MemberMaster">
+		SELECT	*
+		  FROM	member_master
+		 WHERE	login_id = #{loginId}
+	</select>
+
+	<insert id="insertMember" parameterType="MemberMaster">
+
+
+
+		insert into members (
+			name, password, username, address
+		)
+		values (
+			#{username},
+			'$2a$10$pXCiA7xUo0KZl8gQJ7b7wO45Uwexw93krq/HMvp.OorsTwhpoPUTa',
+			#{username},
+			'test'
+		)
+
+
+	</insert>
+
+
+
+
+
+
+</mapper>

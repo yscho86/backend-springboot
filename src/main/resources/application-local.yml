@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    activate:
+      on-profile: local
+
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://mysql-dev-test.cnbw1f0cb00s.ap-northeast-2.rds.amazonaws.com:3306/devtest?characterEncoding=utf8&useSSL=false&autoReconnection=true&serverTimezone=UTC
+      username: admin
+      password: devtest1234
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+  redis:
+    lettuce:
+      pool:
+        max-active: 5
+        max-idle: 5
+        min-idle: 1
+    port: 6379
+    host: dev-redis.nujackpot.com
+
+
+    security:
+      oauth2:
+        client:
+          registration:
+            google:
+              client-id: 661637509717-aonf6gn5mrfo74qjovpj3bablgg31ecv.apps.googleusercontent.com
+              client-secret: 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
+
+
+
+# apis
+externals:
+
+internals:
+
+logging:
+  config: classpath:logback/logback-local.xml

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="path" value="./logs"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} ---- %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="rolling-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${path}/backoffice</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${path}/backoffice-%d{yyyy-MM-dd}.%i.txt</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} --- %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="warn">
+        <appender-ref ref="rolling-file" />
+    </root>
+
+    <logger name="jdbc" level="OFF"/>
+    <logger name="jdbc.sql" level="OFF"/>
+    <logger name="jdbc.sqlonly" level="DEBUG"/>
+    <logger name="jdbc.sqltiming" level="WARN"/>
+    <logger name="jdbc.audit" level="OFF"/>
+    <logger name="jdbc.resultset" level="OFF"/>
+    <logger name="jdbc.resultsettable" level="INFO"/>
+    <logger name="jdbc.connection" level="OFF"/>
+
+    <logger name="jdk" level="INFO" />
+    <logger name="sun" level="INFO" />
+    <logger name="io" level="INFO" />
+    <logger name="org.apache" level="INFO" />
+    <logger name="javax.cache" level="ERROR" additivity="false" />
+    <logger name="org.springframework" level="INFO" />
+    <logger name="org.springframework.jdbc" level="ERROR" additivity="false" />
+    <logger name="org.springframework.transaction" level="ERROR" additivity="false" />
+    <logger name="org.springframework.web.client" level="ERROR" additivity="false" />
+    <logger name="org.springframework.data.mongodb" level="ERROR" />
+
+    <logger name="org.springframework.data.couchbase.repository.query" level="DEBUG" />
+    <logger name="org.springframework.data.mongodb.core.MongoTemplate" level="DEBUG" />
+    <logger name="org.springframework.data.mongodb.core.ReactiveMongoTemplate" level="DEBUG" />
+
+    <logger name="com.zaxxer.hikari" level="INFO" />
+    <logger name="com.zaxxer.hikari.HikariConfig" level="INFO"/>
+
+    <logger name="cc.grum.base.backendspringboot" level="DEBUG"/>
+</configuration>

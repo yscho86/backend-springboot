@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+  thymeleaf:
+    prefix: classpath:templates/
+    check-template: true
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+  devtools:
+    livereload:
+      enabled: true
+    thymeleaf:
+      cache: false
+
+jwt:
+  secret: Z3J1bS5jYy5iYWNrZW5kLmp3dC5zZWN1cmUua2V5LlozSjFiUzVqWXk1aVlXTnJaVzVrTG1wM2RDNXpaV04xY21VdWEyVjU=

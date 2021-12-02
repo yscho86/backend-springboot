@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} ---- %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="warn">
+        <appender-ref ref="console"/>
+    </root>
+
+    <logger name="jdbc" level="OFF"/>
+    <logger name="jdbc.sql" level="OFF"/>
+    <logger name="jdbc.sqlonly" level="ERROR"/>
+    <logger name="jdbc.sqltiming" level="DEBUG"/>
+    <logger name="jdbc.audit" level="ERROR"/>
+    <logger name="jdbc.resultset" level="ERROR"/>
+    <logger name="jdbc.resultsettable" level="DEBUG"/>
+    <logger name="jdbc.connection" level="ERROR"/>
+
+    <logger name="jdk" level="INFO" />
+    <logger name="sun" level="INFO" />
+    <logger name="io" level="INFO" />
+    <logger name="org.apache" level="INFO" />
+    <logger name="javax.cache" level="ERROR" additivity="false" />
+    <logger name="org.springframework" level="ERROR" additivity="false"/>
+    <logger name="org.springframework.jdbc" level="ERROR" additivity="false" />
+    <logger name="org.springframework.transaction" level="ERROR" additivity="false" />
+    <logger name="org.springframework.web.client" level="ERROR" additivity="false" />
+    <logger name="org.springframework.data.mongodb" level="DEBUG" />
+
+    <logger name="org.springframework.data.couchbase.repository.query" level="DEBUG" />
+    <logger name="org.springframework.data.mongodb.core.MongoTemplate" level="DEBUG" />
+    <logger name="org.springframework.data.mongodb.core.ReactiveMongoTemplate" level="DEBUG" />
+
+    <logger name="com.zaxxer.hikari" level="DEBUG" />
+    <logger name="com.zaxxer.hikari.HikariConfig" level="DEBUG"/>
+
+</configuration>

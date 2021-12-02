@@ -1,0 +1,35 @@
+spring:
+  config:
+    activate:
+      on-profile: stage
+
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://localhost:3306/base-stage?characterEncoding=utf8&useSSL=false&autoReconnection=true&serverTimezone=UTC
+      username: dev
+      password: dev999!@
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+  redis:
+    lettuce:
+      pool:
+        max-active: 5
+        max-idle: 5
+        min-idle: 1
+    port: 6379
+    host: localhost
+
+  devtools:
+    livereload:
+      enabled: true
+    thymeleaf:
+      cache: false
+
+
+# apis
+externals:
+
+internals:
+
+logging:
+  config: classpath:logback/logback-stage.xml
